@@ -32,4 +32,4 @@ spec:
         - name: script-volume
           configMap:
             name: keycloak-setup-script
-  backoffLimit: 4
+  backoffLimit: 1
