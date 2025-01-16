@@ -4,6 +4,7 @@ metadata:
   annotations:
     argocd.argoproj.io/tracking-id: argo-workflows-templates:rbac.authorization.k8s.io/ClusterRoleBinding:argo/backstage-scaffolder-argo-workflows
   name: backstage-scaffolder-argo-workflows
+  namespace: {{ .Release.Namespace }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
@@ -11,3 +12,4 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: backstage-scaffolder
+  namespace: {{ .Release.Namespace }}
