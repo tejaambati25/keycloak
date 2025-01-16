@@ -1,0 +1,22 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  annotations:
+    argocd.argoproj.io/tracking-id: backstage:rbac.authorization.k8s.io/ClusterRole:backstage/backstage-argo-worfklows
+  creationTimestamp: "2024-10-17T21:06:33Z"
+  name: backstage-argo-worfklows
+  resourceVersion: "15855155"
+  uid: 9cec6e51-e223-4ae2-8f3b-131d85ba954d
+rules:
+- apiGroups:
+  - argoproj.io
+  resources:
+  - workflows
+  verbs:
+  - create
+- apiGroups:
+  - ""
+  resources:
+  - configmaps
+  verbs:
+  - create
