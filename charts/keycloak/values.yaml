@@ -41,5 +41,5 @@ postgresql:
   username: <DB.USERNAME>
 
 keycloak:
-  enabled: true
+  createIngress: true
   host: <KEYCLOAK.OPSMX.COM>
