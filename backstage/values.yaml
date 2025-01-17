@@ -21,5 +21,6 @@ postgresql:
   username: <DB.USERNAME>
 
 backstage:
-  enabled: true
+  createIngress:
+    enabled: true
   host: <BACKSTAGE.OPSMX.COM>
