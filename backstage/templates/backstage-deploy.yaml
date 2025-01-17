@@ -40,6 +40,10 @@ spec:
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
+          volumeMounts:
+            - mountPath: /app/config
+              name: backstage-config
+              readOnly: true
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
@@ -57,3 +61,8 @@ spec:
                     - key: k8s-config.yaml
                       path: k8s-config.yaml
                   name: k8s-config
+              - configMap:
+                  items:
+                    - key: app-config.yaml
+                      path: app-config.yaml
+                  name: backstage-config
