@@ -34,16 +34,16 @@ data:
   curl -sS -H "Content-Type: application/json" -H "Authorization: bearer ${KEYCLOAK_TOKEN}" -X PUT  backstage:7007/admin/realms/cnoe/clients/${CLIENT_ID}/default-client-scopes/${CLIENT_SCOPE_GROUPS_ID}
 
 
-  pass=$(kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d)
+#   pass=$(kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d)
 
-  token=$(curl -sS localhost:8085/api/v1/session -d "{\"username\":\"admin\",\"password\":\"${pass}\"}" | yq .token)
+#   token=$(curl -sS localhost:8085/api/v1/session -d "{\"username\":\"admin\",\"password\":\"${pass}\"}" | yq .token)
 
-# THIS DOES NOT EXPIRE. Has read all permissions.
-  argocdToken=$(curl -sS http://localhost:8085/api/v1/account/backstage/token -X POST -H "Authorization: Bearer ${token}" | yq .token)
+# # THIS DOES NOT EXPIRE. Has read all permissions.
+#   argocdToken=$(curl -sS http://localhost:8085/api/v1/account/backstage/token -X POST -H "Authorization: Bearer ${token}" | yq .token)
 
-  echo 'storing client secrets to backstage namespace'
-  envsubst < secret-env-var.yaml | kubectl apply -f -
-  envsubst < secret-integrations.yaml | kubectl apply -f -
+#   echo 'storing client secrets to backstage namespace'
+#   envsubst < secret-env-var.yaml | kubectl apply -f -
+#   envsubst < secret-integrations.yaml | kubectl apply -f -
 
 #If TLS secret is available in /private, use it. Could be empty...
   if ls ${REPO_ROOT}/private/backstage-tls-backup-* 1> /dev/null 2>&1; then
