@@ -30,7 +30,7 @@ spec:
           envFrom:
             - secretRef:
                 name: backstage-env-vars
-          image: ghcr.io/cnoe-io/backstage-app:9232d633b2698fffa6d0a73b715e06640d170162
+          image: quay.io/opsmxpublic/backstage-app:backstage
           imagePullPolicy: Always
           name: backstage
           ports:
